@@ -1,12 +1,13 @@
 import React, {useCallback, useState} from 'react'
 import WidgetInput from './WidgetInput'
 import {nanoid} from 'nanoid'
-import {ObjectInputProps, PatchEvent, set} from 'sanity'
+import {ObjectInputProps, PatchEvent, set, MemberField} from 'sanity'
 import {CloudinaryAsset} from '../types'
 import {useSecrets} from '@sanity/studio-secrets'
 import {InsertHandlerParams} from '../types'
 import {openMediaSelector} from '../utils'
 import SecretsConfigView, {namespace, Secrets} from './SecretsConfigView'
+import {TextInput, Stack} from '@sanity/ui'
 
 const CloudinaryInput = (props: ObjectInputProps) => {
   const [showSettings, setShowSettings] = useState(false)
@@ -50,10 +51,22 @@ const CloudinaryInput = (props: ObjectInputProps) => {
         )
     : () => setShowSettings(true)
 
+    console.log({props})
+
   return (
     <>
       {showSettings && <SecretsConfigView onClose={() => setShowSettings(false)} />}
       <WidgetInput onSetup={() => setShowSettings(true)} openMediaSelector={action} {...props} />
+      <Stack space={3}>
+      {props?.members?.map((member) => 
+        <MemberField 
+          member={member}
+          renderInput={props.renderInput}
+          renderField={props.renderField}
+          renderItem={props.renderItem}
+        />
+      )}
+      </Stack>
     </>
   )
 }
