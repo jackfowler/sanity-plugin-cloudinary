@@ -64,6 +64,7 @@ const CloudinaryInput = (props: ObjectInputProps) => {
           renderInput={props.renderInput}
           renderField={props.renderField}
           renderItem={props.renderItem}
+          renderPreview={props.renderPreview}
         />
       )}
       </Stack>

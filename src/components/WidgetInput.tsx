@@ -24,7 +24,8 @@ const WidgetInput = (props: WidgetInputProps) => {
 
   return (
     <Stack>
-      <SetupButtonContainer>
+      {/* Hide setup for now, as it's all set up */}
+      {/* <SetupButtonContainer>
         <Flex flex={1} justify="flex-end">
           <Button
             color="primary"
@@ -35,7 +36,7 @@ const WidgetInput = (props: WidgetInputProps) => {
             tabIndex={1}
           />
         </Flex>
-      </SetupButtonContainer>
+      </SetupButtonContainer> */}
 
       <Flex style={{textAlign: 'center', width: '100%'}} marginBottom={2}>
         <AssetPreview value={value as CloudinaryAsset} />
