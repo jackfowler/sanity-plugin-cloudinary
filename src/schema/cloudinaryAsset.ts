@@ -2,7 +2,7 @@
 import CloudinaryInput from '../components/CloudinaryInput'
 import AssetDiff from '../components/AssetDiff'
 import AssetPreview from '../components/AssetPreview'
-import {defineType} from 'sanity'
+import { defineType } from 'sanity'
 
 export const cloudinaryAssetSchema = defineType({
   type: 'object',
@@ -11,7 +11,7 @@ export const cloudinaryAssetSchema = defineType({
     {
       type: 'string',
       name: 'public_id',
-      readOnly: true,
+      hidden: true,
     },
     {
       type: 'string',
@@ -94,6 +94,36 @@ export const cloudinaryAssetSchema = defineType({
       name: 'context',
       hidden: true,
     },
+		{
+			name: 'note',
+			type: 'note',
+			description: 'Looks like your video is longer than 10 seconds, are you sure you don\'t want to show a player?',
+			options: {
+				tone: 'caution'
+			},
+			hidden: ({ parent }) => parent?.resource_type !== 'video' || parent?.duration < 10 || parent?.player,
+		},
+		{
+			name: 'player',
+			title: 'Show player?',
+			type: 'boolean',
+			description: 'Use this option if the video is longer than 10 seconds or requires sound. Video player will open in a lightbox.',
+			hidden: ({ parent }) => parent?.resource_type !== 'video'
+		},
+		{
+			name: 'showCaption',
+			title: 'Caption',
+			type: 'boolean',
+		},
+		{
+			name: 'caption',
+			type: 'basicText',
+			hidden: ({ parent }) => !parent?.showCaption
+		},
+		{
+			name: 'link',
+			type: 'link',
+		},
     // metadata array of unknown content
   ],
   ...({
