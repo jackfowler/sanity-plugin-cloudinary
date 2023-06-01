@@ -23,7 +23,7 @@ const WidgetInput = (props: WidgetInputProps) => {
   }, [onChange])
 
   return (
-    <Stack>
+    <Stack marginBottom={3}>
       {/* Hide setup for now, as it's all set up */}
       {/* <SetupButtonContainer>
         <Flex flex={1} justify="flex-end">

@@ -4,9 +4,9 @@ import AssetDiff from '../components/AssetDiff'
 import AssetPreview from '../components/AssetPreview'
 import { defineType } from 'sanity'
 
-export const cloudinaryAssetSchema = defineType({
+export const cloudinaryPortfolioAsset = defineType({
   type: 'object',
-  name: 'cloudinary.asset',
+  name: 'cloudinary.portfolioAsset',
   fields: [
     {
       type: 'string',
@@ -109,7 +109,21 @@ export const cloudinaryAssetSchema = defineType({
 			type: 'boolean',
 			description: 'Use this option if the video is longer than 10 seconds or requires sound. Video player will open in a lightbox.',
 			hidden: ({ parent }) => parent?.resource_type !== 'video'
-		}
+		},
+		{
+			name: 'showCaption',
+			title: 'Caption',
+			type: 'boolean',
+		},
+		{
+			name: 'caption',
+			type: 'basicText',
+			hidden: ({ parent }) => !parent?.showCaption
+		},
+		{
+			name: 'link',
+			type: 'link',
+		},
     // metadata array of unknown content
   ],
   ...({

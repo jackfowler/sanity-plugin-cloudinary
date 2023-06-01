@@ -11,6 +11,8 @@ import {CloudinaryAssetSource} from './components/asset-source/CloudinaryAssetSo
 import {cloudinaryAssetContext} from './schema/cloudinaryAssetContext'
 import {cloudinaryAssetContextCustom} from './schema/cloudinaryAssetContextCustom'
 import {AssetListFunctions} from './components/AssetListFunctions'
+import { cloudinaryAssetWithCaption } from './schema/cloudinaryAssetWithCaption'
+import { cloudinaryPortfolioAsset } from './schema/cloudinaryPortfolioAsset'
 
 export {type CloudinaryAssetContext} from './schema/cloudinaryAssetContext'
 export {type CloudinaryAssetDerived} from './schema/cloudinaryAssetDerived'
@@ -50,6 +52,8 @@ export const cloudinarySchemaPlugin = definePlugin({
       cloudinaryAssetDerivedSchema,
       cloudinaryAssetContext,
       cloudinaryAssetContextCustom,
+      cloudinaryAssetWithCaption,
+      cloudinaryPortfolioAsset,
     ],
   },
 })
