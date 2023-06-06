@@ -8,7 +8,7 @@ export default {
       Suggested image width 3000px. Suggested video width 1920px.{' '}
       <a
         target="_blank"
-        href="https://formwork.notion.site/Website-Asset-Specs-3478e27896e4456b9d4976ff8b06ffbf"
+        href="https://jackywinter.notion.site/Website-Asset-Specs-5186266eff6b44ba84b9000136026921"
       >
         More information
       </a>
