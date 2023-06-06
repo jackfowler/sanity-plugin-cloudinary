@@ -13,6 +13,8 @@ import {
 import {useSecrets} from '@sanity/studio-secrets'
 import SecretsConfigView, {namespace} from './SecretsConfigView'
 import {cloudinaryAssetSchema} from '../schema/cloudinaryAsset'
+import {cloudinaryAssetWithCaption} from '../schema/cloudinaryAssetWithCaption'
+import {cloudinaryPortfolioAsset} from '../schema/cloudinaryPortfolioAsset'
 import {openMediaSelector} from '../utils'
 import {InsertHandlerParams} from '../types'
 import {PlugIcon} from '@sanity/icons'
@@ -34,7 +36,10 @@ export const AssetListFunctions = (
   const hide = useCallback(() => setShowSettings(false), [setShowSettings])
 
   const cloudinaryType = props.schemaType.of.find(
-    (t: {name: string}) => t.name === cloudinaryAssetSchema.name
+    (t: {name: string}) =>
+      t.name === cloudinaryAssetSchema.name ||
+      t.name === cloudinaryAssetWithCaption.name ||
+      t.name === cloudinaryPortfolioAsset.name
   ) as ObjectSchemaType | undefined
 
   if (!cloudinaryType) {
@@ -90,9 +95,10 @@ export const AssetListFunctions = (
               onClick={handleOpenSelector}
             />
           </Box>
-          <Box>
+          {/* Hide for now */}
+          {/* <Box>
             <Button onClick={show} icon={PlugIcon} mode="bleed" title={'Configure'} />
-          </Box>
+          </Box> */}
         </>
       )}
     </Flex>

@@ -9,6 +9,10 @@ export const cloudinaryPortfolioAsset = defineType({
   name: 'cloudinary.portfolioAsset',
   fields: [
     {
+      type: 'sizeNote',
+      name: 'sizeNote',
+    },
+    {
       type: 'string',
       name: 'public_id',
       hidden: true,
@@ -119,6 +123,13 @@ export const cloudinaryPortfolioAsset = defineType({
 			name: 'caption',
 			type: 'basicText',
 			hidden: ({ parent }) => !parent?.showCaption
+		},
+    {
+			name: 'featured',
+			title: 'Featured',
+			type: 'boolean',
+			description: 'If selected, this asset will be featured on the artists index.',
+			hidden: ({ parent }) => parent?.resource_type !== 'video'
 		},
 		{
 			name: 'link',

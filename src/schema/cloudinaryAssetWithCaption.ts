@@ -6,8 +6,12 @@ import { defineType } from 'sanity'
 
 export const cloudinaryAssetWithCaption = defineType({
   type: 'object',
-  name: 'cloudinary.assetExtended',
+  name: 'cloudinary.assetWithCaption',
   fields: [
+    {
+      type: 'sizeNote',
+      name: 'sizeNote',
+    },
     {
       type: 'string',
       name: 'public_id',

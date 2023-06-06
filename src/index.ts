@@ -1,5 +1,9 @@
 import {cloudinaryAssetSchema} from './schema/cloudinaryAsset'
+import {cloudinaryAssetWithCaption} from './schema/cloudinaryAssetWithCaption'
+import {cloudinaryPortfolioAsset} from './schema/cloudinaryPortfolioAsset'
 import {cloudinaryAssetDerivedSchema} from './schema/cloudinaryAssetDerived'
+import sizeNote from './schema/sizeNote'
+
 import {
   definePlugin,
   AssetSource,
@@ -11,8 +15,6 @@ import {CloudinaryAssetSource} from './components/asset-source/CloudinaryAssetSo
 import {cloudinaryAssetContext} from './schema/cloudinaryAssetContext'
 import {cloudinaryAssetContextCustom} from './schema/cloudinaryAssetContextCustom'
 import {AssetListFunctions} from './components/AssetListFunctions'
-import { cloudinaryAssetWithCaption } from './schema/cloudinaryAssetWithCaption'
-import { cloudinaryPortfolioAsset } from './schema/cloudinaryPortfolioAsset'
 
 export {type CloudinaryAssetContext} from './schema/cloudinaryAssetContext'
 export {type CloudinaryAssetDerived} from './schema/cloudinaryAssetDerived'
@@ -25,6 +27,8 @@ export {
   cloudinaryAssetDerivedSchema,
   cloudinaryAssetContext,
   cloudinaryAssetContextCustom,
+  cloudinaryAssetWithCaption,
+  cloudinaryPortfolioAsset,
 }
 
 export const cloudinarySchemaPlugin = definePlugin({
@@ -36,7 +40,10 @@ export const cloudinarySchemaPlugin = definePlugin({
         if (isArrayOfObjectsSchemaType(schemaType)) {
           const arrayProps = props as ArrayOfObjectsInputProps
           const cloudinaryType = arrayProps.schemaType.of.find(
-            (t: {name: string}) => t.name === cloudinaryAssetSchema.name
+            (t: {name: string}) =>
+              t.name === cloudinaryAssetSchema.name ||
+              t.name === cloudinaryAssetWithCaption.name ||
+              t.name === cloudinaryPortfolioAsset.name
           )
           if (cloudinaryType) {
             return arrayProps.renderDefault({...arrayProps, arrayFunctions: AssetListFunctions})
@@ -54,6 +61,7 @@ export const cloudinarySchemaPlugin = definePlugin({
       cloudinaryAssetContextCustom,
       cloudinaryAssetWithCaption,
       cloudinaryPortfolioAsset,
+      sizeNote,
     ],
   },
 })

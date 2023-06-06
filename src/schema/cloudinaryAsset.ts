@@ -9,9 +9,13 @@ export const cloudinaryAssetSchema = defineType({
   name: 'cloudinary.asset',
   fields: [
     {
+      type: 'sizeNote',
+      name: 'sizeNote',
+    },
+    {
       type: 'string',
       name: 'public_id',
-      hidden: true,
+      readOnly: true,
     },
     {
       type: 'string',
@@ -109,7 +113,7 @@ export const cloudinaryAssetSchema = defineType({
 			type: 'boolean',
 			description: 'Use this option if the video is longer than 10 seconds or requires sound. Video player will open in a lightbox.',
 			hidden: ({ parent }) => parent?.resource_type !== 'video'
-		}
+		},
     // metadata array of unknown content
   ],
   ...({
