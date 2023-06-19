@@ -129,7 +129,6 @@ export const cloudinaryPortfolioAsset = defineType({
 			title: 'Featured',
 			type: 'boolean',
 			description: 'If selected, this asset will be featured on the artists index.',
-			hidden: ({ parent }) => parent?.resource_type !== 'video'
 		},
 		{
 			name: 'link',
