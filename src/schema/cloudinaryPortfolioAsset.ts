@@ -130,9 +130,18 @@ export const cloudinaryPortfolioAsset = defineType({
 			type: 'boolean',
 			description: 'If selected, this asset will be featured on the artists index.',
 		},
+    { 
+      type: 'reference',
+      name:'style',
+      options: {
+        disableNew: true,
+      },
+      to: [{ type: 'style' }] 
+    },
 		{
 			name: 'link',
 			type: 'link',
+      description: 'Optional.',
 		},
     // metadata array of unknown content
   ],
