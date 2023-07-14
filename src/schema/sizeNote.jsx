@@ -5,7 +5,7 @@ export default {
   type: 'note',
   description: (
     <>
-      Suggested image width 3000px. Suggested video width 1920px.{' '}
+      Suggested image width 4000px. Suggested video width 1920px.{' '}
       <a
         target="_blank"
         href="https://jackywinter.notion.site/Website-Asset-Specs-5186266eff6b44ba84b9000136026921"

@@ -121,7 +121,7 @@ export const cloudinaryAssetWithCaption = defineType({
 		},
 		{
 			name: 'caption',
-			type: 'basicText',
+			type: 'string',
 			hidden: ({ parent }) => !parent?.showCaption
 		},
     // metadata array of unknown content

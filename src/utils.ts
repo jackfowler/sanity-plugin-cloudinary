@@ -22,6 +22,21 @@ export function assetUrl(asset: Partial<Pick<CloudinaryAsset, 'url' | 'secure_ur
   return asset.url
 }
 
+export function assetUrlOptimised(asset) {
+  // return JSON.stringify(asset)
+  // let url = ''
+  // url += 'https://res.cloudinary.com/jackywinter/'
+  //   url+= asset?.resource_type + '/'
+  //   url+= asset?.type + '/'
+  //   url+= 'w_800,q_80'
+  //   url+= '/'
+  //   url+= asset?.public_id + '.' + (asset?.type === 'video' ? 'mp4' : asset?.format)
+  //   return url
+
+  return asset?.url?.split('/upload/').join('/upload/w_800,q_80/')
+
+}
+
 export const openMediaSelector = (
   cloudName: string,
   apiKey: string,

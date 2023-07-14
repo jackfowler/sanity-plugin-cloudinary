@@ -121,7 +121,7 @@ export const cloudinaryPortfolioAsset = defineType({
 		},
 		{
 			name: 'caption',
-			type: 'basicText',
+			type: 'string',
 			hidden: ({ parent }) => !parent?.showCaption
 		},
     {

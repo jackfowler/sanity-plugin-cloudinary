@@ -1,6 +1,6 @@
 import React from 'react'
 import VideoPlayer from './VideoPlayer'
-import {assetUrl} from '../utils'
+import {assetUrl, assetUrlOptimised} from '../utils'
 import {Flex} from '@sanity/ui'
 import {CloudinaryAsset} from '../types'
 
@@ -10,7 +10,7 @@ interface ComponentProps {
 }
 
 const AssetPreview = ({value, layout}: ComponentProps) => {
-  const url = value && assetUrl(value)
+  const url = value && assetUrlOptimised(value)
   if (!value || !url) {
     return null
   }
