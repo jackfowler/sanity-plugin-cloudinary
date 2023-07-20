@@ -39,7 +39,7 @@ const WidgetInput = (props: WidgetInputProps) => {
       </SetupButtonContainer> */}
 
       <Flex style={{textAlign: 'center', width: '100%'}} marginBottom={2}>
-        <AssetPreview value={value as CloudinaryAsset} />
+        <AssetPreview value={value as CloudinaryAsset} controls={true} />
       </Flex>
 
       <Grid gap={1} style={{gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))'}}>

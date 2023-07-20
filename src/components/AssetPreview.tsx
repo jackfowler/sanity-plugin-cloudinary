@@ -7,9 +7,10 @@ import {CloudinaryAsset} from '../types'
 interface ComponentProps {
   layout?: 'default' | 'block'
   value: CloudinaryAsset | undefined
+  controls: boolean
 }
 
-const AssetPreview = ({value, layout}: ComponentProps) => {
+const AssetPreview = ({value, layout, controls = false}: ComponentProps) => {
   const url = value && assetUrlOptimised(value)
   if (!value || !url) {
     return null
@@ -24,7 +25,7 @@ const AssetPreview = ({value, layout}: ComponentProps) => {
             maxWidth: layout === 'default' ? '80px' : '100%',
           }}
         >
-          <VideoPlayer src={url} kind="player" />
+          <VideoPlayer src={url} kind="player" controls={controls} />
         </Flex>
       )
     default:
