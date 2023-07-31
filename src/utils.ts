@@ -32,9 +32,7 @@ export function assetUrlOptimised(asset) {
   //   url+= '/'
   //   url+= asset?.public_id + '.' + (asset?.type === 'video' ? 'mp4' : asset?.format)
   //   return url
-
-  return asset?.url?.split('/upload/').join('/upload/w_800,q_80/')
-
+  return asset?.url?.split('/upload/').join('/upload/w_800,q_80/').replace('http', 'https')
 }
 
 export const openMediaSelector = (
