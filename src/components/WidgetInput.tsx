@@ -3,7 +3,7 @@ import {ObjectInputProps, PatchEvent, unset} from 'sanity'
 import {Button, Flex, Grid, Stack} from '@sanity/ui'
 import {PlugIcon} from '@sanity/icons'
 import styled from 'styled-components'
-import AssetPreview from './AssetPreview'
+import AssetPreview from './AssetPreviewFull'
 import {CloudinaryAsset} from '../types'
 
 const SetupButtonContainer = styled.div`

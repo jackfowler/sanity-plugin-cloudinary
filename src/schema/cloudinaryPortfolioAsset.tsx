@@ -3,10 +3,11 @@ import CloudinaryInput from '../components/CloudinaryInput'
 import AssetDiff from '../components/AssetDiff'
 import AssetPreview from '../components/AssetPreview'
 import { defineType } from 'sanity'
+import buildCloudinaryUrl from '../buildCloudinaryUrl'
 
-export const cloudinaryAssetWithCaption = defineType({
+export const cloudinaryPortfolioAsset = defineType({
   type: 'object',
-  name: 'cloudinary.assetWithCaption',
+  name: 'cloudinary.portfolioAsset',
   fields: [
     {
       type: 'sizeNote',
@@ -124,6 +125,40 @@ export const cloudinaryAssetWithCaption = defineType({
 			type: 'string',
 			hidden: ({ parent }) => !parent?.showCaption
 		},
+    {
+			name: 'featured',
+			title: 'Featured',
+			type: 'boolean',
+			description: 'If selected, this asset will be featured on the artists index.',
+		},
+    { 
+      type: 'reference',
+      name:'style',
+      description: 'Outdated, use styles array below.',
+      readOnly: true,
+      options: {
+        disableNew: true,
+      },
+      to: [{ type: 'style' }] 
+    },
+    {
+			name: 'styles',
+			type: 'array',
+			of: [
+        { 
+          type: 'reference',
+          options: {
+            disableNew: true,
+          },
+          to: [{ type: 'style' }] 
+        },
+      ],
+		},
+		{
+			name: 'link',
+			type: 'link',
+      description: 'Optional.',
+		},
     // metadata array of unknown content
   ],
   ...({
@@ -137,16 +172,15 @@ export const cloudinaryAssetWithCaption = defineType({
     select: {
       url: 'url',
       resource_type: 'resource_type',
-      derived: 'derived.0.url',
+      type: 'type',
+      public_id: 'public_id',
+      featured: 'featured',
     },
-    prepare({url, derived, resource_type}) {
+    prepare({url, resource_type, type, public_id, featured}) {
       return {
         title: url,
-        value: {
-          title: url,
-          resource_type,
-          url: derived || url,
-        },
+        featured,
+        media: <img src={buildCloudinaryUrl({resource_type, type, public_id})}/>
       }
     },
   },
