@@ -142,18 +142,35 @@ export const cloudinaryPortfolioAsset = defineType({
       to: [{ type: 'style' }] 
     },
     {
-			name: 'styles',
-			type: 'array',
-			of: [
+      name: 'styles',
+      type: 'object',
+      fields: [
         { 
           type: 'reference',
+          name:'primary',
           options: {
             disableNew: true,
           },
           to: [{ type: 'style' }] 
         },
-      ],
-		},
+        { 
+          type: 'reference',
+          name:'secondary',
+          options: {
+            disableNew: true,
+          },
+          to: [{ type: 'style' }] 
+        },
+        { 
+          type: 'reference',
+          name:'tertiary',
+          options: {
+            disableNew: true,
+          },
+          to: [{ type: 'style' }] 
+        },
+      ]
+    },
 		{
 			name: 'link',
 			type: 'link',
