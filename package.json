@@ -1,6 +1,6 @@
 {
   "name": "@jackfowler/sanity-plugin-cloudinary-extended",
-  "version": "1.1.71",
+  "version": "1.1.72",
   "description": "Cloudinary integration for Sanity Studio V3.",
   "keywords": [
     "sanity",
@@ -51,6 +51,7 @@
     "@sanity/incompatible-plugin": "^1.0.4",
     "@sanity/studio-secrets": "^2.0.1",
     "@sanity/ui": "^1.7.4",
+    "@superside-oss/sanity-plugin-copy-paste": "^1.0.3",
     "nanoid": "^4.0.0",
     "styled-components": "^5.2.1"
   },

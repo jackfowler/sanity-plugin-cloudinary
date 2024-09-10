@@ -2,13 +2,15 @@
 import CloudinaryInput from '../components/CloudinaryInput'
 import AssetDiff from '../components/AssetDiff'
 import AssetPreview from '../components/AssetPreview'
-import { defineType } from 'sanity'
+import { defineType, defineField } from 'sanity'
 import buildCloudinaryUrl from '../buildCloudinaryUrl'
+import {copyPaste} from '@superside-oss/sanity-plugin-copy-paste'
 
 export const cloudinaryPortfolioAsset = defineType({
   type: 'object',
   name: 'cloudinary.portfolioAsset',
   fields: [
+    defineField(copyPaste),
     {
       type: 'sizeNote',
       name: 'sizeNote',
