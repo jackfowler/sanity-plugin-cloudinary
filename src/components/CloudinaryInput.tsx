@@ -56,15 +56,20 @@ const CloudinaryInput = (props: ObjectInputProps) => {
       {showSettings && <SecretsConfigView onClose={() => setShowSettings(false)} />}
       <WidgetInput onSetup={() => setShowSettings(true)} openMediaSelector={action} {...props} />
       <Stack space={3}>
-      {props?.members?.map((member) => member.name !== 'public_id' && (
-        <MemberField 
-          member={member}
-          renderInput={props.renderInput}
-          renderField={props.renderField}
-          renderItem={props.renderItem}
-          renderPreview={props.renderPreview}
-        />)
-      )}
+      {props?.members?.map((member) => {
+        if ('name' in member && member.name !== 'public_id') {
+          return (
+            <MemberField 
+              member={member}
+              renderInput={props.renderInput}
+              renderField={props.renderField}
+              renderItem={props.renderItem}
+              renderPreview={props.renderPreview}
+            />
+          )
+        }
+        return null
+      })}
       </Stack>
     </div>
   )

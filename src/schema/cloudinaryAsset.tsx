@@ -115,6 +115,36 @@ export const cloudinaryAssetSchema = defineType({
 			description: 'Use this option if the video is longer than 10 seconds or requires sound. Video player will open in a lightbox.',
 			hidden: ({ parent }) => parent?.resource_type !== 'video'
 		},
+    {
+			name: 'customisePreviewLoop',
+			title: 'Customise Preview Loop?',
+			type: 'boolean',
+			description: 'By default, the player preview loop will play the first 3 seconds of the video. Check this option to customise the preview loop start and end time.',
+			hidden: ({ parent }) => !parent?.player
+		},
+    {
+			name: 'previewLoopStartTime',
+			title: 'Preview Loop Start Time',
+			type: 'string',
+			description: 'The start time of the preview loop in seconds. eg. 0:15',
+			hidden: ({ parent }) => !parent?.customisePreviewLoop || !parent?.player || !parent?.resource_type
+		},
+    {
+			name: 'previewLoopEndTime',
+			title: 'Preview Loop End Time',
+			type: 'string',
+			description: 'The end time of the preview loop in minutes. eg. 0:30',
+			hidden: ({ parent }) => !parent?.customisePreviewLoop || !parent?.player || !parent?.resource_type
+		},
+    {
+			name: 'note2',
+			type: 'note',
+			description: 'You can also use decimal seconds for more control. eg. 0:15.25',
+			options: {
+				tone: 'caution'
+			},
+			hidden: ({ parent }) => !parent?.customisePreviewLoop || !parent?.player || !parent?.resource_type
+		},
     // metadata array of unknown content
   ],
   ...({

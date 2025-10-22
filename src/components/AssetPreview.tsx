@@ -2,7 +2,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
 
-const AssetPreview = props => {
+const AssetPreview = (props: any) => {
   console.log(typeof props?.renderDefault)
   if(!props?.renderDefault) return null
   return (

@@ -22,7 +22,7 @@ export function assetUrl(asset: Partial<Pick<CloudinaryAsset, 'url' | 'secure_ur
   return asset.url
 }
 
-export function assetUrlOptimised(asset) {
+export function assetUrlOptimised(asset: any) {
   // return JSON.stringify(asset)
   // let url = ''
   // url += 'https://res.cloudinary.com/jackywinter/'

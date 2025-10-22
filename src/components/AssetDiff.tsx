@@ -24,7 +24,7 @@ const CloudinaryDiffPreview = ({value}: Props) => {
           justifyContent: 'space-between',
         }}
       >
-        <VideoPlayer src={url} kind="diff" />
+        <VideoPlayer src={url} kind="diff" controls={true} />
       </section>
     )
   }
