@@ -1,6 +1,6 @@
 {
   "name": "@jackfowler/sanity-plugin-cloudinary-extended",
-  "version": "1.1.72",
+  "version": "1.1.76",
   "description": "Cloudinary integration for Sanity Studio V3.",
   "keywords": [
     "sanity",
@@ -93,6 +93,11 @@
   "engines": {
     "node": ">=14"
   },
+  "browserslist": [
+    "node 14",
+    "> 1%",
+    "last 2 versions"
+  ],
   "sanityPlugin": {
     "verifyPackage": {
       "tsc": false
